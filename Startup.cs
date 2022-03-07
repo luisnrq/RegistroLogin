@@ -57,8 +57,6 @@ namespace RegistroLogin
             {
                 options.AddPolicy("ADMINISTRADORES", policy => policy.RequireRole("ADMIN"));
             });
-
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
