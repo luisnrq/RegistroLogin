@@ -1,0 +1,171 @@
+﻿@section estilos{
+    <style>
+        .signup_v4 .social-area {
+            text-align: center;
+            padding-top: 14px
+        }
+
+            .signup_v4 .social-area .title {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 600;
+                display: inline-block;
+                color: #007bff;
+                position: relative
+            }
+
+            .signup_v4 .social-area .text {
+                font-size: 17px;
+                font-weight: 400;
+                color: #143250
+            }
+
+            .signup_v4 .social-area .title::before {
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 1px;
+                background: rgba(0, 0, 0, .2);
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                left: 100%;
+                margin-left: 7px
+            }
+
+            .signup_v4 .social-area .title::after {
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 1px;
+                background: rgba(0, 0, 0, .2);
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                right: 100%;
+                margin-right: 7px
+            }
+
+        .signup_v4 ul.social-links {
+            padding: 0;
+            margin: 0
+        }
+
+        .signup_v4 .social-area .social-links li {
+            display: inline-block
+        }
+
+            .signup_v4 .social-area .social-links li a i {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                line-height: 50px;
+                display: inline-block;
+                color: #fff;
+                margin: 0 5px;
+                -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
+                box-shadow: 0 5px 10px rgb(0 0 0 / 15%)
+            }
+
+                .signup_v4 .social-area .social-links li a i.fa-facebook-f {
+                    background: #0069f7
+                }
+
+                .signup_v4 .social-area .social-links li a i.fa-google-plus-g {
+                    background: #d1062c
+                }
+
+        .signup_v4 .nav-tabs .nav-link.active {
+            background: #007bff
+        }
+
+        .signup_v4 .nav-tabs .nav-link {
+            background: #143250
+        }
+
+        .signup_v4 .nav-tabs .nav-link {
+            border: 0;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 0;
+            color: #fff
+        }
+
+        .signup_v4 .nav-tabs li.nav-item {
+            width: 50%
+        }
+
+        .signup_v4 .card-body {
+            padding: 0px
+        }
+
+            .signup_v4 .card-body .tab-content {
+                padding: 0 1.25rem 1.75em
+            }
+    </style>
+}
+
+@if (ViewData["MENSAJE"] != null)
+{
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    @ViewData["MENSAJE"]
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+
+<div class="card signup_v4 mb-30">
+    <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation"> <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a> </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Registro</a> </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <h4 class="text-center mt-4 mb-4" style="text-transform: uppercase;">Login</h4>
+                <form method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-12"> <label for="inputName">Email</label> <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Escribe tu direccion de correo" required=""> </div>
+                        <div class="form-group col-md-12"> <label for="inputName">Contraseña</label> <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Escribe tu contraseña" required=""> </div>
+                        <div class="form-group col-md-12">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <a href="#" target="_blank">¿Contraseña olvidada?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 mb-3"> <button class="btn btn-primary full-width" type="submit">Login</button> </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <h4 class="text-center mt-4 mb-4" style="text-transform: uppercase;">Registro</h4>
+                <form method="post" asp-controller="Home" asp-action="Registro">
+                    <div class="form-row">
+                        <div class="form-group col-md-12"> <label for="inputName">Email</label> <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Escribe tu dirección de correo *" required=""> </div>
+                        <div class="form-group col-md-12"> <label for="inputName">Contraseña</label> <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Escribe tu contraseña *" required=""> </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6"> <label for="inputName">Nombre</label> <input type="text" name="nombre" class="form-control" id="inputEmail4" placeholder="Escribe tu nombre"> </div>
+                        <div class="form-group col-md-6"> <label for="inputName">Apellidos</label> <input type="text" name="apellidos" class="form-control" id="inputEmail4" placeholder="Escribe tus apellidos"> </div>
+                    </div>
+                    <div class="form-group form-row mt-2">
+                        <label class="col-md-2 col-form-label user_group">Tipo de usuario</label>
+                        <div class="col-md-10 pt-1">
+                            <div class="form-check form-check-inline"> <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="USUARIO" required> <label class="form-check-label" for="inlineRadio1">USUARIO</label> </div>
+                            <div class="form-check form-check-inline"> <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="ADMIN" required> <label class="form-check-label" for="inlineRadio2">ADMIN</label> </div>
+                        </div>
+                    </div>
+                    <hr class="mt-3 mb-4">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <div class="custom-checkbox d-block"> <a asp-controller="Manage" asp-action="LogIn" class="nav-link-inline font-size-sm">¿Ya tienes una cuenta? LogIn</a> </div> <button class="btn btn-primary mt-3 mt-sm-0" type="submit">Registrate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
